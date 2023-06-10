@@ -71,8 +71,9 @@ class ChatBot:
 
                     context.bot.send_message(chat_id=user_id, text=f"congrast your dom set {domisilii}")
                 else:
-                    new_data = {"old": "20"}
-                    self.record.update(user_id, f"{msg}")
+                    kon = int(msg)
+                    new_data = {"old": f"{kon}"}
+                    self.record.update(user_id, new_data)
                     data = self.record.search(user_id)
                     age_user = data.get("old")
 
