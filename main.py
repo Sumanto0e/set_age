@@ -37,7 +37,7 @@ class ChatBot:
                 # Typing Action
                 context.bot.send_chat_action(chat_id=user_id, action=ChatAction.TYPING, timeout=1)
                 # User welcome
-                update.message.reply_text(text="send numeric for set age and send text for set dom")
+                update.message.reply_text(text="send numeric for set age and send text for set domisili")
             except telegram.error.Unauthorized:
                 pass
 
@@ -66,11 +66,17 @@ class ChatBot:
                 if not msg.isdigit():
                     new_data = {"domisili": {msg}}
                     self.record.update(user_id, new_data)
-                    context.bot.send_message(chat_id=user_id, text=f"congrast your dom set {msg}")
+                    data = self.record.search(user_id)
+                    domisilii = data.get("domisili")
+
+                    context.bot.send_message(chat_id=user_id, text=f"congrast your dom set {domisilii}")
                 else:
                     new_data = {"old": {msg}}
                     self.record.update(user_id, new_data)
-                    context.bot.send_message(chat_id=user_id, text=f"congrast your old set {msg}")
+                    data = self.record.search(user_id)
+                    age_user = data.get("old")
+
+                    context.bot.send_message(chat_id=user_id, text=f"congrast your old set {age_user}")
 
             # if user stop the bot
             except telegram.error.Unauthorized:
