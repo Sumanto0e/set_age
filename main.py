@@ -116,7 +116,7 @@ class ChatBot:
 
         dp = updater.dispatcher
 
-
+        dp.add_handler(CommandHandler("start", self.start, run_async=True))
         dp.add_handler(MessageHandler(Filters.text, self.message_handler, run_async=True))
 
 
