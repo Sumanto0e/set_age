@@ -64,14 +64,14 @@ class ChatBot:
             try:
                 msg = update.message.text
                 if not msg.isdigit():
-                    new_data = {"domisili": {msg}}
+                    new_data = {"domisili": "jakarta"}
                     self.record.update(user_id, new_data)
                     data = self.record.search(user_id)
                     domisilii = data.get("domisili")
 
                     context.bot.send_message(chat_id=user_id, text=f"congrast your dom set {domisilii}")
                 else:
-                    new_data = {"old": {msg}}
+                    new_data = {"old": "20"}
                     self.record.update(user_id, new_data)
                     data = self.record.search(user_id)
                     age_user = data.get("old")
