@@ -548,12 +548,12 @@ class ChatBot:
         updater.idle()
 
 class KulBot:
-    def __init__(self, api_id, api_hash,bot_name, bot_key):
+    def __init__(self, api_id, api_hash, bit_namo, bot_key):
         self.boys = []
         self.girls = []
         self.chat_pair = {}
 
-        self.api_id, self.api_hash, self.bot_name, self.bot_key = api_id, api_hash,bot_name, bot_key
+        self.api_id, self.api_hash, self.bit_namo, self.bot_key = api_id, api_hash, bit_namo, bot_key
 
         # Calling  database
         self.record = DataBase()
@@ -631,4 +631,4 @@ if __name__ == '__main__':
     bit_namo = "asda"
     bot_key = config.bot_token2
     ChatBot(api_id, api_hash, bot_name, bot_key)
-    KulBot(api_id, api_hash, bot_name, bot_key)
+    KulBot(api_id, api_hash, bit_namo, bot_key)
