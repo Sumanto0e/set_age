@@ -558,9 +558,6 @@ class KulBot:
         # Calling  database
         self.record = DataBase()
 
-        # Bot command handler
-        self.command_handler()
-
     def start(self, update, context):
         user_id, name, username = self.common_args(update, context)
 
@@ -632,6 +629,3 @@ if __name__ == '__main__':
     bot_keyi = config.bot_token2
     ChatBot(api_id, api_hash, bot_name, bot_key)
     KulBot(api_id, api_hash, bit_namo, bot_keyi)
-
-
-
